@@ -1,69 +1,11 @@
-import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, Building2, CalendarClock, Check, FileSearch, Files, ScanLine, ShieldCheck, Sparkles } from "lucide-react";
 
-export default function Home() {
-  return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+export default function HomePage() {
+ return <main className="min-h-screen overflow-hidden bg-[#fbfcf9] text-slate-900"><header className="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-5 sm:px-8"><Link href="/" className="flex items-center gap-2.5"><span className="grid h-9 w-9 place-items-center rounded-xl bg-lime-300 text-slate-900"><FileSearch size={19} /></span><span className="text-lg font-semibold tracking-[-0.05em]">Lease<span className="text-lime-600">Lens</span></span></Link><nav className="hidden items-center gap-8 text-xs font-medium text-slate-600 md:flex"><a href="#platform" className="hover:text-slate-950">Platform</a><a href="#how-it-works" className="hover:text-slate-950">How it works</a><a href="#trust" className="hover:text-slate-950">Security</a></nav><div className="flex items-center gap-4"><Link href="/login" className="hidden text-xs font-semibold text-slate-600 hover:text-slate-950 sm:block">Sign in</Link><Link href="/dashboard" className="inline-flex h-9 items-center gap-2 rounded-xl bg-slate-900 px-4 text-xs font-semibold text-white hover:bg-slate-700">Explore workspace <ArrowRight size={14} /></Link></div></header>
+ <section className="mx-auto grid max-w-7xl items-center gap-12 px-5 pb-20 pt-12 sm:px-8 sm:pt-20 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16 lg:pb-28"><div><div className="mb-6 inline-flex items-center gap-2 rounded-full border border-lime-200 bg-lime-50 px-3 py-1.5 text-[10px] font-semibold text-lime-900"><Sparkles size={13} /> Lease intelligence for commercial real estate</div><h1 className="max-w-[620px] text-[44px] font-semibold leading-[1.08] tracking-[-0.065em] text-slate-950 sm:text-[58px]">Every Lease.<br /><span className="relative inline-block">Clearly Understood.<span className="absolute -bottom-1 left-0 -z-0 h-2.5 w-full rounded-full bg-lime-300/70" /></span></h1><p className="mt-6 max-w-lg text-[15px] leading-7 text-slate-600">Transform complex commercial lease agreements into structured insights with AI-powered lease abstraction.</p><div className="mt-8 flex flex-wrap items-center gap-3"><Link href="/dashboard" className="inline-flex h-11 items-center gap-2 rounded-xl bg-slate-900 px-5 text-xs font-semibold text-white shadow-lg shadow-slate-900/10 transition hover:-translate-y-0.5 hover:bg-slate-700">Get started <ArrowRight size={15} /></Link><a href="#platform" className="inline-flex h-11 items-center gap-2 rounded-xl border border-slate-200 bg-white px-5 text-xs font-semibold text-slate-700 hover:border-slate-300">Explore platform</a></div><div className="mt-8 flex flex-wrap gap-x-5 gap-y-2 text-[10px] text-slate-500"><span className="inline-flex items-center gap-1.5"><Check size={13} className="text-emerald-600" /> Evidence-linked insights</span><span className="inline-flex items-center gap-1.5"><Check size={13} className="text-emerald-600" /> Built for lease teams</span></div></div>
+ <div className="relative mx-auto w-full max-w-[620px]"><div className="absolute -right-7 -top-7 h-40 w-40 rounded-full bg-lime-200/30 blur-3xl" /><div className="relative rounded-[22px] border border-slate-200 bg-white p-2.5 shadow-[0_28px_80px_rgba(15,23,42,0.13)]"><div className="overflow-hidden rounded-[16px] border border-slate-100 bg-[#f8faf7]"><div className="flex h-12 items-center justify-between border-b border-slate-200/80 bg-white px-4"><div className="flex items-center gap-2"><span className="grid h-7 w-7 place-items-center rounded-lg bg-lime-100 text-lime-800"><Building2 size={14} /></span><span className="text-[10px] font-semibold">LeaseLens <span className="font-normal text-slate-400">/ Portfolio overview</span></span></div><span className="rounded-full bg-emerald-50 px-2 py-1 text-[8px] font-semibold text-emerald-700">Workspace preview</span></div><div className="p-4 sm:p-5"><div className="flex items-end justify-between"><div><p className="text-[8px] text-slate-500">Monday, November 3, 2026</p><p className="mt-1 text-lg font-semibold tracking-[-0.04em]">Good morning, Jordan</p></div><span className="rounded-lg bg-slate-900 px-2.5 py-2 text-[8px] font-semibold text-white">+ Add lease</span></div><div className="mt-4 grid grid-cols-3 gap-2"><div className="rounded-xl border border-slate-100 bg-white p-3"><p className="text-[8px] text-slate-500">Total leases</p><p className="mt-1 text-xl font-semibold">128</p><p className="mt-1 text-[8px] text-emerald-700">? 12.8% this quarter</p></div><div className="rounded-xl border border-slate-100 bg-white p-3"><p className="text-[8px] text-slate-500">Analyzed</p><p className="mt-1 text-xl font-semibold">96</p><p className="mt-1 text-[8px] text-emerald-700">? 8.4% this quarter</p></div><div className="rounded-xl border border-slate-100 bg-white p-3"><p className="text-[8px] text-slate-500">Expiring soon</p><p className="mt-1 text-xl font-semibold">12</p><p className="mt-1 text-[8px] text-amber-700">Next 90 days</p></div></div><div className="mt-3 grid gap-2 sm:grid-cols-[1.15fr_0.85fr]"><div className="rounded-xl border border-slate-100 bg-white p-3.5"><div className="flex items-center justify-between"><p className="text-[9px] font-semibold">Portfolio status</p><span className="text-[8px] text-slate-400">All properties</span></div><div className="mt-4 flex h-2 overflow-hidden rounded-full bg-slate-100"><div className="w-[70%] bg-lime-400" /><div className="w-[18%] bg-slate-300" /><div className="w-[12%] bg-amber-300" /></div><div className="mt-3 flex justify-between text-[8px] text-slate-500"><span>? Active 90</span><span>? Expired 23</span><span>? Pending 15</span></div></div><div className="rounded-xl border border-slate-100 bg-white p-3.5"><p className="text-[9px] font-semibold">Next important date</p><div className="mt-3 flex items-center gap-2.5"><span className="grid h-8 w-8 place-items-center rounded-lg bg-amber-50 text-amber-700"><FileSearch size={15} /></span><div><p className="text-[8px] font-semibold">Renewal notice</p><p className="mt-1 text-[8px] text-slate-500">Westlake Tower · 11 days</p></div></div></div></div></div></div></div><div className="absolute -bottom-5 -left-5 hidden items-center gap-2.5 rounded-xl border border-slate-100 bg-white p-3 shadow-xl shadow-slate-900/10 sm:flex"><span className="grid h-8 w-8 place-items-center rounded-lg bg-lime-100 text-lime-800"><ScanLine size={16} /></span><div><p className="text-[9px] font-semibold">Lease insights, organized</p><p className="mt-0.5 text-[8px] text-slate-500">Review clauses with source context</p></div></div></div></section>
+ <section id="platform" className="border-y border-slate-200/70 bg-white py-16 sm:py-20"><div className="mx-auto max-w-7xl px-5 sm:px-8"><div className="max-w-xl"><p className="text-[10px] font-bold uppercase tracking-[0.17em] text-lime-700">One clear picture</p><h2 className="mt-3 text-3xl font-semibold tracking-[-0.05em]">Lease details, easier to work with.</h2><p className="mt-3 text-sm leading-6 text-slate-500">A shared workspace for turning dense documents into information your team can review and act on.</p></div><div className="mt-9 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{[{ icon: Files, title: "Organized lease terms", text: "Bring key dates, rent terms, and responsibilities together." }, { icon: CalendarClock, title: "Important dates", text: "Keep expiration and renewal deadlines in view." }, { icon: ShieldCheck, title: "Evidence alongside insights", text: "Review extracted details with the source clause and page." }, { icon: FileSearch, title: "Portfolio search", text: "Find the lease information your team needs." }].map(({ icon: Icon, title, text }) => <article key={title} className="rounded-2xl border border-slate-200/80 p-5 transition hover:-translate-y-0.5 hover:shadow-lg hover:shadow-slate-900/[0.04]"><span className="grid h-9 w-9 place-items-center rounded-xl bg-lime-100 text-lime-800"><Icon size={17} /></span><h3 className="mt-4 text-sm font-semibold">{title}</h3><p className="mt-2 text-xs leading-5 text-slate-500">{text}</p></article>)}</div></div></section>
+ <section id="how-it-works" className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-20"><div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end"><div><p className="text-[10px] font-bold uppercase tracking-[0.17em] text-lime-700">A simple workflow</p><h2 className="mt-3 text-3xl font-semibold tracking-[-0.05em]">From agreement to overview.</h2></div><p className="max-w-sm text-xs leading-5 text-slate-500">The product foundation is ready. AI extraction and document workflows will be added in the next development phases.</p></div><div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{["Upload your lease agreement", "AI analyzes the document", "Review extracted information", "Get actionable lease insights"].map((step, index) => <div key={step} className="rounded-2xl border border-slate-200/80 bg-white p-5"><span className="text-xs font-semibold text-lime-700">0{index + 1}</span><h3 className="mt-5 text-sm font-semibold">{step}</h3><div className="mt-5 h-px bg-gradient-to-r from-lime-300 to-transparent" /></div>)}</div></section>
+ <section id="trust" className="bg-[#111827] px-5 py-14 text-white sm:px-8"><div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 sm:flex-row sm:items-center"><div className="max-w-xl"><div className="flex items-center gap-2 text-lime-300"><ShieldCheck size={17} /><span className="text-[10px] font-semibold uppercase tracking-[0.15em]">Review with context</span></div><h2 className="mt-3 text-2xl font-semibold tracking-[-0.04em]">Keep the source close to the summary.</h2><p className="mt-2 text-xs leading-5 text-slate-400">LeaseLens is designed to show extracted information beside the document language it came from.</p></div><Link href="/dashboard" className="inline-flex h-10 items-center gap-2 rounded-xl bg-lime-300 px-4 text-xs font-semibold text-slate-900 hover:bg-lime-200">Open the workspace <ArrowRight size={14} /></Link></div></section><footer className="mx-auto flex max-w-7xl flex-col gap-2 px-5 py-7 text-[10px] text-slate-500 sm:flex-row sm:items-center sm:justify-between sm:px-8"><Link href="/" className="font-semibold text-slate-700">LeaseLens</Link><p>Every Lease. Clearly Understood. <span className="ml-2">· Illustrative product preview</span></p></footer></main>;
 }

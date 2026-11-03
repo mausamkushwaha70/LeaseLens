@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LeaseLens
 
-## Getting Started
+Every Lease. Clearly Understood.
 
-First, run the development server:
+LeaseLens is a commercial lease intelligence frontend for reviewing commercial lease portfolios. This phase is a clickable product preview powered by illustrative mock data. Authentication, document storage, REST API integration, and AI analysis are not connected yet.
+
+## Requirements
+
+- Node.js 20.9 or newer
+- npm
+
+## Run locally
 
 ```bash
+npm install
+Copy-Item .env.local.example .env.local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000. Explore the dashboard at `/dashboard`, the searchable sample lease library at `/leases`, and the other workspace views from the sidebar. The upload screen accepts a local PDF selection for preview only; it does not send or store the file.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Next.js App Router, TypeScript, Tailwind CSS v4, Lucide, Recharts, React Hook Form, Zod, Axios, and Sonner.
 
-## Learn More
+## Structure
 
-To learn more about Next.js, take a look at the following resources:
+- `src/app`: App Router pages and route groups (overview, leases, upload, analysis, deadlines, reports, settings, and help)
+- `src/components`: shared layout and feature components
+- `src/lib`: app constants and API configuration
+- `src/mock`: illustrative sample data clearly separated from real API output
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Set `NEXT_PUBLIC_API_URL` to the REST API base URL when a backend is available.

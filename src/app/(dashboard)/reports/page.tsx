@@ -1,0 +1,16 @@
+"use client";
+
+import Link from "next/link";
+import { ArrowRight, Download, Files, ShieldCheck } from "lucide-react";
+import { leases } from "@/mock/leases";
+
+export default function ReportsPage() {
+  const completed = leases.filter((lease) => lease.status === "Completed").length;
+  const needsReview = leases.filter((lease) => lease.status === "Needs review").length;
+  return <div className="space-y-6">
+    <section className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end"><div><div className="mb-2 inline-flex rounded-full border border-blue-200 bg-blue-50 px-2.5 py-1 text-[10px] font-semibold text-blue-900">Portfolio insights</div><h2 className="text-[26px] font-semibold tracking-[-0.045em] text-slate-950 sm:text-[30px]">Reports</h2><p className="mt-1.5 text-sm text-slate-500">A snapshot of the illustrative lease records in this workspace.</p></div><button onClick={() => window.print()} className="inline-flex h-10 items-center justify-center gap-2 self-start rounded-xl border border-slate-200 bg-white px-4 text-xs font-semibold text-slate-700 hover:bg-slate-50 sm:self-auto"><Download size={14} /> Print report</button></section>
+    <section className="grid gap-3 sm:grid-cols-3">{[{ label: "Leases in sample", value: leases.length, icon: Files }, { label: "Completed reviews", value: completed, icon: ShieldCheck }, { label: "Need attention", value: needsReview, icon: Files }].map(({ label, value, icon: Icon }) => <article key={label} className="rounded-2xl border border-slate-200/80 bg-white p-5"><span className="grid h-9 w-9 place-items-center rounded-xl bg-lime-100 text-lime-800"><Icon size={17} /></span><p className="mt-4 text-xs text-slate-500">{label}</p><p className="mt-1 text-3xl font-semibold tracking-tight text-slate-900">{value}</p></article>)}</section>
+    <section className="rounded-2xl border border-slate-200/80 bg-white p-5 sm:p-6"><div className="flex items-center justify-between"><div><h3 className="text-sm font-semibold text-slate-900">Review status</h3><p className="mt-1 text-[11px] text-slate-500">Breakdown of the sample lease library</p></div><span className="text-[10px] text-slate-400">{leases.length} leases</span></div><div className="mt-6 flex h-3 overflow-hidden rounded-full bg-slate-100">{["Completed", "Processing", "Needs review"].map((status) => { const amount = leases.filter((lease) => lease.status === status).length; return <div key={status} title={`${status}: ${amount}`} style={{ width: `${(amount / leases.length) * 100}%` }} className={status === "Completed" ? "bg-lime-400" : status === "Processing" ? "bg-blue-400" : "bg-amber-300"} />; })}</div><div className="mt-4 flex flex-wrap gap-x-6 gap-y-2">{[{ status: "Completed", color: "bg-lime-400" }, { status: "Processing", color: "bg-blue-400" }, { status: "Needs review", color: "bg-amber-300" }].map(({ status, color }) => <div key={status} className="flex items-center gap-2 text-[11px] text-slate-600"><span className={`h-2 w-2 rounded-full ${color}`} />{status}<strong className="font-semibold text-slate-800">{leases.filter((lease) => lease.status === status).length}</strong></div>)}</div></section>
+    <Link href="/leases" className="inline-flex items-center gap-1 text-xs font-semibold text-slate-700 hover:text-slate-950">Browse lease records <ArrowRight size={14} /></Link>
+  </div>;
+}
